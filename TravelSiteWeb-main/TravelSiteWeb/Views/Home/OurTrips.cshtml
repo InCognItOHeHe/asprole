@@ -1,0 +1,21 @@
+﻿@using TravelSiteWeb.ViewModel
+@model IEnumerable<TravelDetail>
+@{
+    ViewData["Title"] = "OurTrips";
+}
+<div class="container">
+    <h1>Our Trips</h1>
+    <ul>
+        @foreach (var detail in Model)
+        {
+            <li>
+                <h2><a asp-area="" asp-controller="Home" asp-action="Destination" asp-route-id="@detail.Id">@detail.Name</a></h2>
+                <div class="image-container">
+                </div>
+                <p>@detail.Name</p>
+                <p>@detail.Country</p>
+                <p>@detail.Cost</p>
+            </li>
+        }
+    </ul>
+</div>

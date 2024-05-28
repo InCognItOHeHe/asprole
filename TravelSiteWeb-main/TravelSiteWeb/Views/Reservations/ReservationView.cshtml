@@ -1,0 +1,48 @@
+﻿@using TravelSiteWeb.Services
+@using TravelSiteWeb.ViewModel;
+@model List<ReservationViewModel>
+@{
+    ViewBag.Title = "Reservations";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Add Reservations", "AddReservation")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ReservationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Adress)
+        </th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditReservation", new { ReservationsID = item.ReservationsID }) |
+                @Html.ActionLink("Delete", "DeleteReservation", new { ReservationsID = item.ReservationsID})
+            </td>
+        </tr>
+    }
+</table>

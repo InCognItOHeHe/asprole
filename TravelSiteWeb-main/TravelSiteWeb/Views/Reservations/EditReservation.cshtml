@@ -1,0 +1,64 @@
+﻿@model TravelSiteWeb.Models.Reservations
+@{
+    ViewBag.Title = "EditReservations";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>Edit Clients</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ReservationsID)
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReservationDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReservationDate)
+                @Html.ValidationMessageFor(model => model.ReservationDate)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cost, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cost)
+                @Html.ValidationMessageFor(model => model.Cost)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Contact, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Contact)
+                @Html.ValidationMessageFor(model => model.Contact)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adress, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Adress)
+                @Html.ValidationMessageFor(model => model.Adress)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClientsID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ClientsID)
+                @Html.ValidationMessageFor(model => model.ClientsID)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DestinationsID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DestinationsID)
+                @Html.ValidationMessageFor(model => model.DestinationsID)
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Update" class="btn btn-default" />
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to Reservations List", "Index")
+</div>

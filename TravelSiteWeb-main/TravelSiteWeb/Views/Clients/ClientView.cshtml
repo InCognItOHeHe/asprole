@@ -1,0 +1,51 @@
+﻿@using TravelSiteWeb.Services
+@model List<ClientViewModel>
+@{
+    ViewBag.Title = "Clients";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Add Client", "AddClient")
+</p>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ClientsID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().FirstTrip)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientsID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstTrip)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "EditClient", new { ClientsID = item.ClientsID }) |
+                @Html.ActionLink("Delete", "DeleteClient", new { ClientsID = item.ClientsID})
+            </td>
+        </tr>
+    }
+</table>
